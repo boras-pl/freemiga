@@ -1,0 +1,5 @@
+#!/bin/sh
+
+/usr/bin/psplash-write "MSG Init..."
+/usr/bin/psplash-write "PROGRESS 75"
+

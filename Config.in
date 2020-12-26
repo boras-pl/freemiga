@@ -1,0 +1,1 @@
+source "$BR2_EXTERNAL_FREEMIGA_PATH/package/amiberry/Config.in"

@@ -1,0 +1,23 @@
+diff --git a/Makefile b/Makefile
+index 93666ebd..c5484619 100644
+--- a/Makefile
++++ b/Makefile
+@@ -209,7 +209,7 @@ PROG   = amiberry
+ # SDL2 options
+ #
+ all: guisan $(PROG)
+-SDL_CONFIG ?= sdl2-config
++SDL_CONFIG ?= $(STAGING_DIR)/usr/bin/sdl2-config
+ export SDL_CFLAGS := $(shell $(SDL_CONFIG) --cflags)
+ export SDL_LDFLAGS := $(shell $(SDL_CONFIG) --libs)
+ 
+@@ -221,7 +221,8 @@ LDFLAGS += $(SDL_LDFLAGS) -lSDL2_image -lSDL2_ttf -lguisan -Lexternal/libguisan/
+ #
+ DEFS = $(XML_CFLAGS) -DAMIBERRY
+ CPPFLAGS += -Isrc -Isrc/osdep -Isrc/threaddep -Isrc/include -Isrc/archivers $(DEFS)
+-XML_CFLAGS := $(shell xml2-config --cflags )
++XML_CONFIG ?= $(STAGING_DIR)/usr/bin/xml2-config
++XML_CFLAGS := $(shell $(XML_CONFIG) --cflags )
+ LDFLAGS += -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed
+ 
+ ifndef DEBUG

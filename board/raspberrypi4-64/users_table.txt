@@ -1,0 +1,1 @@
+user -1 user -1 =brfm /home/user /bin/sh users,video,audio,input FreeMiga user

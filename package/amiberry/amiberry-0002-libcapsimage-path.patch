@@ -1,0 +1,28 @@
+diff --git a/src/dlopen.cpp b/src/dlopen.cpp
+index ab4c2b23..60c40c66 100644
+--- a/src/dlopen.cpp
++++ b/src/dlopen.cpp
+@@ -72,7 +72,7 @@ UAE_DLHANDLE uae_dlopen_plugin(const TCHAR *name)
+ 		return NULL;
+ 	}
+ */
+-	UAE_DLHANDLE handle = uae_dlopen("./capsimg.so");
++	UAE_DLHANDLE handle = uae_dlopen("/usr/lib/libcapsimage.so");
+ #elif defined(WINUAE)
+ 	TCHAR path[MAX_DPATH];
+ 	_tcscpy(path, name);
+diff --git a/src/osdep/amiberry_gui.cpp b/src/osdep/amiberry_gui.cpp
+index f007e1b6..86660773 100644
+--- a/src/osdep/amiberry_gui.cpp
++++ b/src/osdep/amiberry_gui.cpp
+@@ -56,8 +56,8 @@ struct gui_msg gui_msglist[] = {
+   { NUMSG_ROMNEED,        "One of the following system ROMs is required:\n\n%s\n\nCheck the System ROM path in the Paths panel and click Rescan ROMs." },
+   { NUMSG_EXPROMNEED,     "One of the following expansion boot ROMs is required:\n\n%s\n\nCheck the System ROM path in the Paths panel and click Rescan ROMs." },
+   { NUMSG_NOMEMORY,       "Out of memory or too much Z3 autoconfig space configured." },
+-  { NUMSG_NOCAPS,         "capsimg.so not found. CAPS/IPF support not available." },
+-  { NUMSG_OLDCAPS,        "Old version of capsimg.so found." },
++  { NUMSG_NOCAPS,         "/usr/lib/libcapsimage.so not found. CAPS/IPF support not available." },
++  { NUMSG_OLDCAPS,        "Old version of /usr/lib/libcapsimage.so found." },
+ 
+   { -1, "" }
+ };

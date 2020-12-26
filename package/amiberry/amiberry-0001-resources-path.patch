@@ -1,0 +1,175 @@
+diff --git a/src/driveclick.cpp b/src/driveclick.cpp
+index 56b908ed..82b88710 100644
+--- a/src/driveclick.cpp
++++ b/src/driveclick.cpp
+@@ -542,19 +542,19 @@ int driveclick_loadresource(struct drvsample* sp, int drivetype)
+ 		auto* s = sp + type;
+ 		switch (type) {
+ 		case 0:
+-			sample = strdup("data/floppy_sounds/drive_click.wav");
++			sample = strdup("/usr/share/amiberry/data/floppy_sounds/drive_click.wav");
+ 			break;
+ 		case 1:
+-			sample = strdup("data/floppy_sounds/drive_spin.wav");
++			sample = strdup("/usr/share/amiberry/data/floppy_sounds/drive_spin.wav");
+ 			break;
+ 		case 2:
+-			sample = strdup("data/floppy_sounds/drive_spinnd.wav");
++			sample = strdup("/usr/share/amiberry/data/floppy_sounds/drive_spinnd.wav");
+ 			break;
+ 		case 3:
+-			sample = strdup("data/floppy_sounds/drive_startup.wav");
++			sample = strdup("/usr/share/amiberry/data/floppy_sounds/drive_startup.wav");
+ 			break;
+ 		case 4:
+-			sample = strdup("data/floppy_sounds/drive_snatch.wav");
++			sample = strdup("/usr/share/amiberry/data/floppy_sounds/drive_snatch.wav");
+ 			break;
+ 		default:
+ 			continue;
+diff --git a/src/osdep/amiberry_gfx.cpp b/src/osdep/amiberry_gfx.cpp
+index 7d95e91f..e84ac387 100644
+--- a/src/osdep/amiberry_gfx.cpp
++++ b/src/osdep/amiberry_gfx.cpp
+@@ -441,7 +441,7 @@ int graphics_setup(void)
+ 
+ #endif
+ 
+-	auto* const icon_surface = IMG_Load("data/amiberry.png");
++	auto* const icon_surface = IMG_Load("/usr/share/amiberry/data/amiberry.png");
+ 	if (icon_surface != nullptr)
+ 	{
+ 		SDL_SetWindowIcon(sdl_window, icon_surface);
+diff --git a/src/osdep/gui/InGameMessage.cpp b/src/osdep/gui/InGameMessage.cpp
+index eec0c59a..6947d96e 100644
+--- a/src/osdep/gui/InGameMessage.cpp
++++ b/src/osdep/gui/InGameMessage.cpp
+@@ -357,7 +357,7 @@ void message_widgets_init(const char* msg)
+ 	msg_gui->setTop(msg_top);
+ 
+ 	TTF_Init();
+-	msg_font = new gcn::SDLTrueTypeFont("data/AmigaTopaz.ttf", 15);
++	msg_font = new gcn::SDLTrueTypeFont("/usr/share/amiberry/data/AmigaTopaz.ttf", 15);
+ 	gcn::Widget::setGlobalFont(msg_font);
+ 
+ 	wndMsg = new gcn::Window("InGameMessage");
+diff --git a/src/osdep/gui/PanelAbout.cpp b/src/osdep/gui/PanelAbout.cpp
+index c6e651b9..cccf27d1 100644
+--- a/src/osdep/gui/PanelAbout.cpp
++++ b/src/osdep/gui/PanelAbout.cpp
+@@ -16,7 +16,7 @@ static gcn::ScrollArea* textBoxScrollArea;
+ 
+ void InitPanelAbout(const struct _ConfigCategory& category)
+ {
+-	amiberryLogoImage = gcn::Image::load(prefix_with_application_directory_path("data/amiberry-logo.png"));
++	amiberryLogoImage = gcn::Image::load(prefix_with_application_directory_path("/usr/share/amiberry/data/amiberry-logo.png"));
+ 	icon = new gcn::Icon(amiberryLogoImage);
+ 	lblEmulatorVersion = new gcn::Label(get_version_string());
+ 
+diff --git a/src/osdep/gui/PanelHD.cpp b/src/osdep/gui/PanelHD.cpp
+index f54c31b2..34c43172 100644
+--- a/src/osdep/gui/PanelHD.cpp
++++ b/src/osdep/gui/PanelHD.cpp
+@@ -380,7 +380,7 @@ void InitPanelHD(const struct _ConfigCategory& category)
+ 		listCmdProps[row]->setId(tmp);
+ 		listCmdProps[row]->addActionListener(hdEditActionListener);
+ 
+-		listCmdDelete[row] = new gcn::ImageButton(prefix_with_application_directory_path("data/delete.png"));
++		listCmdDelete[row] = new gcn::ImageButton(prefix_with_application_directory_path("/usr/share/amiberry/data/delete.png"));
+ 		listCmdDelete[row]->setBaseColor(gui_baseCol);
+ 		listCmdDelete[row]->setSize(SMALL_BUTTON_HEIGHT, SMALL_BUTTON_HEIGHT);
+ 		snprintf(tmp, 20, "cmdDel%d", row);
+diff --git a/src/osdep/gui/main_window.cpp b/src/osdep/gui/main_window.cpp
+index e5b9edce..60b55a84 100644
+--- a/src/osdep/gui/main_window.cpp
++++ b/src/osdep/gui/main_window.cpp
+@@ -46,48 +46,48 @@ void target_startup_msg(const TCHAR* title, const TCHAR* msg)
+ 
+ ConfigCategory categories[] = {
+ 	{
+-		"About", "data/amigainfo.ico", nullptr, nullptr, InitPanelAbout, ExitPanelAbout, RefreshPanelAbout,
++		"About", "/usr/share/amiberry/data/amigainfo.ico", nullptr, nullptr, InitPanelAbout, ExitPanelAbout, RefreshPanelAbout,
+ 		HelpPanelAbout
+ 	},
+-	{"Paths", "data/paths.ico", nullptr, nullptr, InitPanelPaths, ExitPanelPaths, RefreshPanelPaths, HelpPanelPaths},
++	{"Paths", "/usr/share/amiberry/data/paths.ico", nullptr, nullptr, InitPanelPaths, ExitPanelPaths, RefreshPanelPaths, HelpPanelPaths},
+ 	{
+-		"Quickstart", "data/quickstart.ico", nullptr, nullptr, InitPanelQuickstart, ExitPanelQuickstart,
++		"Quickstart", "/usr/share/amiberry/data/quickstart.ico", nullptr, nullptr, InitPanelQuickstart, ExitPanelQuickstart,
+ 		RefreshPanelQuickstart, HelpPanelQuickstart
+ 	},
+ 	{
+-		"Configurations", "data/file.ico", nullptr, nullptr, InitPanelConfig, ExitPanelConfig, RefreshPanelConfig,
++		"Configurations", "/usr/share/amiberry/data/file.ico", nullptr, nullptr, InitPanelConfig, ExitPanelConfig, RefreshPanelConfig,
+ 		HelpPanelConfig
+ 	},
+-	{"CPU and FPU", "data/cpu.ico", nullptr, nullptr, InitPanelCPU, ExitPanelCPU, RefreshPanelCPU, HelpPanelCPU},
++	{"CPU and FPU", "/usr/share/amiberry/data/cpu.ico", nullptr, nullptr, InitPanelCPU, ExitPanelCPU, RefreshPanelCPU, HelpPanelCPU},
+ 	{
+-		"Chipset", "data/cpu.ico", nullptr, nullptr, InitPanelChipset, ExitPanelChipset, RefreshPanelChipset,
++		"Chipset", "/usr/share/amiberry/data/cpu.ico", nullptr, nullptr, InitPanelChipset, ExitPanelChipset, RefreshPanelChipset,
+ 		HelpPanelChipset
+ 	},
+-	{"ROM", "data/chip.ico", nullptr, nullptr, InitPanelROM, ExitPanelROM, RefreshPanelROM, HelpPanelROM},
+-	{"RAM", "data/chip.ico", nullptr, nullptr, InitPanelRAM, ExitPanelRAM, RefreshPanelRAM, HelpPanelRAM},
++	{"ROM", "/usr/share/amiberry/data/chip.ico", nullptr, nullptr, InitPanelROM, ExitPanelROM, RefreshPanelROM, HelpPanelROM},
++	{"RAM", "/usr/share/amiberry/data/chip.ico", nullptr, nullptr, InitPanelRAM, ExitPanelRAM, RefreshPanelRAM, HelpPanelRAM},
+ 	{
+-		"Floppy drives", "data/35floppy.ico", nullptr, nullptr, InitPanelFloppy, ExitPanelFloppy, RefreshPanelFloppy,
++		"Floppy drives", "/usr/share/amiberry/data/35floppy.ico", nullptr, nullptr, InitPanelFloppy, ExitPanelFloppy, RefreshPanelFloppy,
+ 		HelpPanelFloppy
+ 	},
+-	{"Hard drives/CD", "data/drive.ico", nullptr, nullptr, InitPanelHD, ExitPanelHD, RefreshPanelHD, HelpPanelHD},
++	{"Hard drives/CD", "/usr/share/amiberry/data/drive.ico", nullptr, nullptr, InitPanelHD, ExitPanelHD, RefreshPanelHD, HelpPanelHD},
+ 	{
+-		"Display", "data/screen.ico", nullptr, nullptr, InitPanelDisplay, ExitPanelDisplay, RefreshPanelDisplay,
++		"Display", "/usr/share/amiberry/data/screen.ico", nullptr, nullptr, InitPanelDisplay, ExitPanelDisplay, RefreshPanelDisplay,
+ 		HelpPanelDisplay
+ 	},
+-	{"Sound", "data/sound.ico", nullptr, nullptr, InitPanelSound, ExitPanelSound, RefreshPanelSound, HelpPanelSound},
+-	{"Input", "data/joystick.ico", nullptr, nullptr, InitPanelInput, ExitPanelInput, RefreshPanelInput, HelpPanelInput},
++	{"Sound", "/usr/share/amiberry/data/sound.ico", nullptr, nullptr, InitPanelSound, ExitPanelSound, RefreshPanelSound, HelpPanelSound},
++	{"Input", "/usr/share/amiberry/data/joystick.ico", nullptr, nullptr, InitPanelInput, ExitPanelInput, RefreshPanelInput, HelpPanelInput},
+ 	{
+-		"Custom controls", "data/controller.png", nullptr, nullptr, InitPanelCustom, ExitPanelCustom,
++		"Custom controls", "/usr/share/amiberry/data/controller.png", nullptr, nullptr, InitPanelCustom, ExitPanelCustom,
+ 		RefreshPanelCustom, HelpPanelCustom
+ 	},
+-	{"Miscellaneous", "data/misc.ico", nullptr, nullptr, InitPanelMisc, ExitPanelMisc, RefreshPanelMisc, HelpPanelMisc},
+-	{ "Priority", "data/misc.ico", nullptr, nullptr, InitPanelPrio, ExitPanelPrio, RefreshPanelPrio, HelpPanelPrio},
++	{"Miscellaneous", "/usr/share/amiberry/data/misc.ico", nullptr, nullptr, InitPanelMisc, ExitPanelMisc, RefreshPanelMisc, HelpPanelMisc},
++	{ "Priority", "/usr/share/amiberry/data/misc.ico", nullptr, nullptr, InitPanelPrio, ExitPanelPrio, RefreshPanelPrio, HelpPanelPrio},
+ 	{
+-		"Savestates", "data/savestate.png", nullptr, nullptr, InitPanelSavestate, ExitPanelSavestate,
++		"Savestates", "/usr/share/amiberry/data/savestate.png", nullptr, nullptr, InitPanelSavestate, ExitPanelSavestate,
+ 		RefreshPanelSavestate, HelpPanelSavestate
+ 	},
+ #ifdef ANDROID
+-	{ "OnScreen",         "data/screen.ico",    NULL, NULL, InitPanelOnScreen,  ExitPanelOnScreen, RefreshPanelOnScreen,  HelpPanelOnScreen },
++	{ "OnScreen",         "/usr/share/amiberry/data/screen.ico",    NULL, NULL, InitPanelOnScreen,  ExitPanelOnScreen, RefreshPanelOnScreen,  HelpPanelOnScreen },
+ #endif
+ 	{nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr}
+ };
+@@ -258,11 +258,11 @@ void setup_cursor()
+ 	// Detect resolution and load appropriate cursor image
+ 	if (strcmp(sdl_video_driver, "x11") != 0 && sdlMode.w > 1280)
+ 	{
+-		cursor_surface = SDL_LoadBMP(prefix_with_application_directory_path("data/cursor-x2.bmp").c_str());
++		cursor_surface = SDL_LoadBMP(prefix_with_application_directory_path("/usr/share/amiberry/data/cursor-x2.bmp").c_str());
+ 	}
+ 	else
+ 	{
+-		cursor_surface = SDL_LoadBMP(prefix_with_application_directory_path("data/cursor.bmp").c_str());
++		cursor_surface = SDL_LoadBMP(prefix_with_application_directory_path("/usr/share/amiberry/data/cursor.bmp").c_str());
+ 	}
+ 
+ 	if (!cursor_surface)
+@@ -977,7 +977,7 @@ void gui_widgets_init()
+ 
+ 	try
+ 	{
+-		gui_font = new gcn::SDLTrueTypeFont(prefix_with_application_directory_path("data/AmigaTopaz.ttf"), 15);
++		gui_font = new gcn::SDLTrueTypeFont(prefix_with_application_directory_path("/usr/share/amiberry/data/AmigaTopaz.ttf"), 15);
+ 	}
+ 	catch (const std::exception& ex)
+ 	{
