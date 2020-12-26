@@ -8,6 +8,7 @@ FreeMIGA integrates all together and prepares a system with some unique features
 - fast boot-up
 - open source - anything can be changed or corrected
 
+Compilation steps:
 - git clone git://git.buildroot.net/buildroot
 - git clone https://github.com/boras-pl/freemiga
 - cd buildroot
@@ -15,15 +16,15 @@ FreeMIGA integrates all together and prepares a system with some unique features
 - make BR2_EXTERNAL=../freemiga all
 - sudo dd if=output/images/sdcard.img of=/dev/sdX bs=4096 #where X is your sd-card letter. All data on will be lost! Be aware of what you do.
 
+Usage:
 - the emulator starts automatically, however it is possible to log in the system as following users:
 - root, password: freemiga
 - user, password: brfm
 
-Note: It won't work without proprietary and copyrighted ROM files in the ~/rom directory.
-
-Should you have any questions, please visit https://buildroot.org/ and https://github.com/midwan/amiberry first.
-
-Work still in progress...
+Notes:
+- It won't work without proprietary and copyrighted ROM files in the ~/rom directory.
+- Should you have any questions, please visit https://buildroot.org/ and https://github.com/midwan/amiberry first.
+- Work still in progress...
 
 TODO:
 - boot menu
