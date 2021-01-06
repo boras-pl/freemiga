@@ -6,6 +6,8 @@ A lightweight, buildroot-based Linux operating system for Raspberry PI 4b with A
 - WHDLoad is a HDD installer for games, demos and other software
 - example cractros - see https://en.wikipedia.org/wiki/Crack_intro - a package distributed by the WHDLoad team.
 
+![screenshot](screenshot.png)
+
 FreeMIGA integrates all together and prepares a system with some unique features:
 - minimal resources usage - only necessary components included
 - fast boot-up
