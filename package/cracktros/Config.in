@@ -1,0 +1,17 @@
+config BR2_PACKAGE_CRACKTROS
+	bool "cracktros"
+	depends on BR2_PACKAGE_WHDLOAD
+
+	help
+	  Short:    Harddisk Installs using WHDLoad
+	  Author:   various authors
+	  Uploader: wepl@whdload.de (Bert Jahn)
+	  Type:     game/patch
+	  Requires: dev/misc/WHDLoad_usr.lha
+	  This is a snapshot collection (04.01.2021) of HD installs using WHDLoad. For
+	  updates and other informations refer to
+
+	  http://www.whdload.de/
+
+comment "cractros needs WHDLoad"
+        depends on !(BR2_PACKAGE_WHDLOAD)

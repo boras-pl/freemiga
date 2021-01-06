@@ -2,7 +2,6 @@ config BR2_PACKAGE_AMIBERRY
 	bool "Amiberry"
 	depends on BR2_PACKAGE_SDL2
 	select BR2_PACKAGE_MPG123
-	select BR2_PACKAGE_LIBCAPSIMAGE
 	help
 	  An Amiga emulator
 

@@ -1,4 +1,4 @@
-config_description=UAE default configuration
+config_description=Amiga 4000 MC68030 RTG
 config_hardware=true
 config_host=true
 config_version=4.4.0
@@ -17,10 +17,10 @@ joyport0_autofire=none
 joyport0_friendlyname=Mouse
 joyport0_name=MOUSE0
 ; 
-joyport1=joy1
+joyport1=joy0
 joyport1_autofire=none
-joyport1_friendlyname=Logitech Gamepad F710
-joyport1_name=JOY1
+joyport1_friendlyname=Keyboard as Joystick [Default]
+joyport1_name=JOY0
 ; 
 ; 
 ; 
@@ -41,12 +41,13 @@ amiberry.gfx_auto_height=false
 amiberry.gfx_correct_aspect=1
 amiberry.kbd_led_num=-1
 amiberry.kbd_led_scr=-1
-amiberry.scaling_method=-1
+amiberry.scaling_method=0
 amiberry.allow_host_run=false
 amiberry.use_analogue_remap=false
 amiberry.use_retroarch_quit=true
 amiberry.use_retroarch_menu=true
 amiberry.use_retroarch_reset=false
+amiberry.cpu_idle=150
 amiberry.active_priority=1
 amiberry.inactive_priority=0
 amiberry.minimized_priority=0
@@ -54,11 +55,9 @@ amiberry.minimized_input=0
 ; 
 ; *** Common / Paths
 ; 
-use_gui=yes
-kickstart_rom_file=/home/user/rom/Kickstart v2.05 rev 37.300 (1991)(Commodore)(A600HD).rom
-kickstart_rom_file_id=64466C2A,KS ROM v2.05 (A600HD)
-kickstart_ext_rom_file=
-pcmcia_mb_rom_file=:ENABLED
+use_gui=no
+kickstart_rom_file=/home/user/hdd/System/boot/amiga/aros-rom.bin
+kickstart_ext_rom_file=/home/user/hdd/System/boot/amiga/aros-ext.bin
 ide_mb_rom_file=:ENABLED
 flash_file=
 cart_file=
@@ -68,16 +67,19 @@ kickshifter=false
 ; *** Floppy Drives
 ; 
 floppy_volume=33
-floppy0=/home/user/adf/princeofpersia.adf
+floppy0=
 floppy1=
-floppy1type=-1
 floppy2=
 floppy3=
-nr_floppies=1
-floppy_speed=100
+nr_floppies=2
+floppy_speed=0
 ; 
 ; *** Hard Drives
 ; 
+filesystem2=rw,DH0:System:/home/user/hdd/System/,0
+uaehf0=dir,rw,DH0:System:/home/user/hdd/System/,0
+filesystem2=rw,DH1:Work:/home/user/hdd/Work/,-128
+uaehf1=dir,rw,DH1:Work:/home/user/hdd/Work/,-128
 scsi=false
 ; 
 ; *** CD / CD32
@@ -87,12 +89,12 @@ cd_speed=100
 ; *** Display / Screen Setup
 ; 
 gfx_framerate=1
-gfx_width=640
-gfx_height=512
+gfx_width=720
+gfx_height=540
 gfx_top_windowed=0
 gfx_left_windowed=0
-gfx_width_windowed=640
-gfx_height_windowed=512
+gfx_width_windowed=720
+gfx_height_windowed=540
 gfx_width_fullscreen=800
 gfx_height_fullscreen=600
 gfx_refreshrate=50
@@ -107,11 +109,11 @@ gfx_lores=false
 gfx_resolution=hires
 gfx_lores_mode=normal
 gfx_flickerfixer=false
-gfx_linemode=none
+gfx_linemode=double2
 gfx_fullscreen_amiga=false
 gfx_fullscreen_picasso=false
-gfx_center_horizontal=none
-gfx_center_vertical=none
+gfx_center_horizontal=smart
+gfx_center_vertical=smart
 gfx_colour_mode=32bit
 gfx_blacker_than_black=false
 gfx_api=directdraw
@@ -119,18 +121,18 @@ gfx_api_options=hardware
 ; 
 ; *** CPU options
 ; 
-cpu_speed=real
+cpu_speed=max
 cpu_throttle=0.0
-cpu_type=68000
-cpu_model=68000
-cpu_compatible=true
-cpu_24bit_addressing=true
+cpu_type=68020/68881
+cpu_model=68030
+fpu_model=68882
+cpu_compatible=false
+cpu_24bit_addressing=false
 cpu_data_cache=false
-cpu_multiplier=2
-cpu_cycle_exact=true
-cpu_memory_cycle_exact=true
-blitter_cycle_exact=true
-cycle_exact=true
+cpu_cycle_exact=false
+cpu_memory_cycle_exact=false
+blitter_cycle_exact=false
+cycle_exact=false
 fpu_strict=false
 comp_trustbyte=direct
 comp_trustword=direct
@@ -141,7 +143,7 @@ comp_constjump=true
 comp_flushmode=soft
 compfpu=false
 comp_catchfault=true
-cachesize=0
+cachesize=16384
 ; 
 ; *** Memory
 ; 
@@ -149,36 +151,37 @@ z3mapping=real
 fastmem_size=0
 a3000mem_size=0
 mbresmem_size=0
-z3mem_size=0
+z3mem_size=512
 z3mem_start=0x40000000
 bogomem_size=0
 gfxcard_hardware_vblank=false
 gfxcard_hardware_sprite=false
 gfxcard_multithread=false
-chipmem_size=2
+gfxcard_size=16
+gfxcard_type=ZorroIII
+chipmem_size=16
 rtg_modes=0x112
 ; 
 ; *** Chipset
 ; 
 immediate_blits=false
+waiting_blits=automatic
 fast_copper=false
 ntsc=false
-chipset=ecs
-chipset_refreshrate=50.080410
+chipset=aga
+chipset_refreshrate=50.000000
 collision_level=playfields
-chipset_compatible=A600
-rtc=none
-ksmirror_a8=true
-pcmcia=true
-resetwarning=false
-cia_todbug=true
-ciaa_type=391078-01
-ciab_type=391078-01
-ide=a600/a1200
+chipset_compatible=A4000
+ksmirror_e0=false
+fatgary=0
+ramsey=15
+z3_autoconfig=true
+unmapped_address_space=zero
+ide=a4000
 ; 
 ; *** Sound Options
 ; 
-sound_output=exact
+sound_output=normal
 sound_channels=stereo
 sound_stereo_separation=7
 sound_stereo_mixing_delay=0
@@ -186,7 +189,7 @@ sound_max_buff=16384
 sound_frequency=44100
 sound_interpol=anti
 sound_filter=emulated
-sound_filter_type=standard
+sound_filter_type=enhanced
 sound_volume=0
 sound_volume_paula=0
 sound_volume_cd=0

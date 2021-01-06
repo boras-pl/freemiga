@@ -1,2 +1,0 @@
-amiberry
-exit

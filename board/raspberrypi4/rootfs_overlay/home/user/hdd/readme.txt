@@ -1,0 +1,1 @@
+An example HDD partitions emulation in directories.

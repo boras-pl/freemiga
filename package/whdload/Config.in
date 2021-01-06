@@ -1,0 +1,11 @@
+config BR2_PACKAGE_WHDLOAD
+	bool "whdload"
+	depends on BR2_PACKAGE_AROS
+
+	help
+	  A package for HDD installation of Amiga software
+
+	  http://whdload.de/
+
+comment "WHDLoad depends on Aros"
+        depends on !(BR2_PACKAGE_AROS)

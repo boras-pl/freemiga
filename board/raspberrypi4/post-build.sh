@@ -19,4 +19,6 @@ sed -i 's/#::ctrlaltdel/::ctrlaltdel/' ${TARGET_DIR}/etc/inittab
 #w/a for long splash visibility - initialize FKMS as late as possible
 if [ -e ${TARGET_DIR}/etc/init.d/S10udev ]; then
 	mv ${TARGET_DIR}/etc/init.d/S10udev ${TARGET_DIR}/etc/init.d/S60udev
+	#disable network - increases boot time dramatically
+	mv ${TARGET_DIR}/etc/init.d/S40network ${TARGET_DIR}/etc/init.d/_S40network
 fi

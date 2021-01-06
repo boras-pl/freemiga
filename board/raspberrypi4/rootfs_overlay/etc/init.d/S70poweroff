@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#emulation of sudo poweroff command
+while true
+do
+    if [ -f /tmp/poweroff ]
+    then
+        poweroff
+    fi
+    sleep 1
+done &

@@ -1,1 +1,5 @@
 source "$BR2_EXTERNAL_FREEMIGA_PATH/package/amiberry/Config.in"
+source "$BR2_EXTERNAL_FREEMIGA_PATH/package/lhasa/Config.in.host"
+source "$BR2_EXTERNAL_FREEMIGA_PATH/package/aros/Config.in"
+source "$BR2_EXTERNAL_FREEMIGA_PATH/package/whdload/Config.in"
+source "$BR2_EXTERNAL_FREEMIGA_PATH/package/cracktros/Config.in"

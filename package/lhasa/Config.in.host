@@ -1,0 +1,6 @@
+config BR2_PACKAGE_HOST_LHASA
+	bool "host lhasa"
+	help
+	  Free Software LHA implementation
+
+	  https://github.com/fragglet/lhasa

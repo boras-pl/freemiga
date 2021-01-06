@@ -2,13 +2,19 @@
 
 set -e
 
+ARCH_SUFFIX=""
+#as we reuse 32bit board in 64bit builds, we need to the proper genimage config architecture
+if grep -Eq "^BR2_aarch64=y$" ${BR2_CONFIG}; then
+	ARCH_SUFFIX="-64"
+fi
+
 BOARD_DIR="$(dirname ${BR2_CONFIG})"
-BOARD_DIR=${BOARD_DIR}/board/raspberrypi4-64
+BOARD_DIR=${BOARD_DIR}/board/raspberrypi4
 echo $BOARD_DIR
 echo $BR2_CONFIG
 echo $BOARD_NAME
 BOARD_NAME="$(basename ${BOARD_DIR})"
-GENIMAGE_CFG="${BOARD_DIR}/genimage-${BOARD_NAME}.cfg"
+GENIMAGE_CFG="${BOARD_DIR}/genimage-${BOARD_NAME}${ARCH_SUFFIX}.cfg"
 GENIMAGE_TMP="${BUILD_DIR}/genimage.tmp"
 
 for arg in "$@"
@@ -52,6 +58,9 @@ dtoverlay=vc4-fkms-v3d
 max_framebuffers=1
 dtparam=audio=on
 disable_splash=1
+hdmi_force_hotplug=1
+hdmi_group=1
+hdmi_mode=31
 __EOF__
 fi
 
