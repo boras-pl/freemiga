@@ -1,5 +1,7 @@
 # FreeMIGA - another Amiga-like clone on RPi4b
 A lightweight, buildroot-based Linux operating system for Raspberry PI 4b with Amiberry and Aros OS with some WHDLoad cractros.
+Visit [Releases](https://github.com/boras-pl/freemiga/releases) for the latest stable SD card image.
+
 - Buildroot is a set of tools that automates process of cross-compilation of an operating system for embedded devices.
 - Amiberry is a famous Amiga emulator
 - Aros OS - an open source operating system mostly compatible with the original one
