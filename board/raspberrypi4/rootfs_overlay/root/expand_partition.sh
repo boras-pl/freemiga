@@ -26,10 +26,24 @@ PARTCMD
         cat <<EOF > /etc/init.d/S91_resize2fs_once
 #!/bin/sh
 
-resize2fs /dev/mmcblk0p2
-# do not start it again
-mv /etc/init.d/S91_resize2fs_once /etc/init.d/_S91_resize2fs_once
-sleep 1
+case "\$1" in
+  start)
+        /sbin/resize2fs /dev/mmcblk0p2
+        # do not start it again
+        mv /etc/init.d/S91_resize2fs_once /etc/init.d/_S91_resize2fs_once
+        sleep 1
+        ;;
+  stop)
+        ;;
+  restart|reload)
+        "\$0" stop
+        "\$0" start
+        ;;
+  *)
+        echo "Usage: \$0 {start|stop|restart}"
+        exit 1
+esac
+
 EOF
         chmod 755 /etc/init.d/S91_resize2fs_once
         echo "Reboot is needed..."
