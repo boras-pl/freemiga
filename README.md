@@ -41,7 +41,7 @@ Usage:
 - root, password: freemiga
 - user, password: brfm
 - F12 goes to the Amiberry menu
-- execute ./expand_partition.sh as root to get a full size of / (there is a bug in v1.1. Check the latest version out of the script)
+- execute ./expand_partition.sh as root to get a full size of / (there is a bug in v1.1. Check the latest script version out)
 
 Notes:
 - Should you have any questions, please visit following sites first:
