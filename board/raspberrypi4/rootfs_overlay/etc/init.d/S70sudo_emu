@@ -1,0 +1,33 @@
+#!/bin/sh
+
+#emulation of sudo command (for the Shutdown button in Amiberry)
+
+case "$1" in
+  start)
+        while true
+        do
+            if [ -f /tmp/poweroff ]
+            then
+                poweroff
+                rm /tmp/poweroff
+            fi
+            if [ -f /tmp/reboot ]
+            then
+                reboot
+                rm /tmp/reboot
+            fi
+            sleep 1
+        done &
+        ;;
+  stop)
+        ;;
+  restart|reload)
+        "$0" stop
+        "$0" start
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?

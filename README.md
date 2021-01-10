@@ -12,7 +12,7 @@ Visit [Releases](https://github.com/boras-pl/freemiga/releases) for the latest s
 
 FreeMIGA integrates all together and prepares a system with some unique features:
 - minimal resources usage - only necessary components included
-- fast boot-up
+- fast boot-up (see Notes)
 - initial config set-up 50Hz & 1080p displays (PAL emulation)
 - pixel perfect scaling
 - open source - anything can be changed or corrected
@@ -52,8 +52,11 @@ Notes:
 - under the Amiberry emulator an ordinary Buildroot Linux is placed with a simple userspace based on Busybox. 
 - the graphics is rendered with SDL2 on the top of Broadcom Fake KMS for VC4/V3D technology.
 - unfortunately Aros OS is not regularly released. The latest nightly builds are integrated. If the latest Aros compilation have a serious problem, it simply won't work. Try to build on another day.
+- networking initialization slows boot-up down a little - under inwestigation - just remove /etc/init.d/S40network if you don't need networking)
+- sshd server is enabled
+- iptables - currently not yet configured - all ports open
 
 TODO:
-- some networking, maybe WiFi, ftp, ssh - we will see...
+- wifi
 - VICE, if possible - integration of a C64 emulator
 - who knows what else...

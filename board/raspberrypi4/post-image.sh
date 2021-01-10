@@ -64,7 +64,10 @@ hdmi_mode=31
 __EOF__
 fi
 
-sed -i 's/$/ quiet/' "${BINARIES_DIR}/rpi-firmware/cmdline.txt"
+#add logo and hide kernel messages - see:
+# https://www.kernel.org/doc/html/v5.4/admin-guide/kernel-parameters.html
+# https://www.kernel.org/doc/html/latest/fb/fbcon.html
+sed -i 's/$/ fbcon=nodefer,logo-pos:center,logo-count:1 vt.color=0x00/' "${BINARIES_DIR}/rpi-firmware/cmdline.txt"
 
 # Pass an empty rootpath. genimage makes a full copy of the given rootpath to
 # ${GENIMAGE_TMP}/root so passing TARGET_DIR would be a waste of time and disk

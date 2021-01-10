@@ -1,4 +1,0 @@
-#!/bin/sh
-
-/usr/bin/psplash-write "MSG Host OS initialization..."
-/usr/bin/psplash-write "PROGRESS 0"

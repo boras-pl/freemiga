@@ -5,3 +5,8 @@ then
     touch /tmp/poweroff
 fi
 
+if [ "$1" == "reboot" ]
+then
+    touch /tmp/reboot
+fi
+

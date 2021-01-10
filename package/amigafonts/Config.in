@@ -1,0 +1,6 @@
+config BR2_PACKAGE_AMIGAFONTS
+	bool "Amigafonts"
+	help
+	  Multi Platform Amiga Fonts
+
+	  https://github.com/rewtnull/amigafonts

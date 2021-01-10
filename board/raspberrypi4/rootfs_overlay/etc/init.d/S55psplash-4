@@ -1,7 +1,0 @@
-#!/bin/sh
-
-/usr/bin/psplash-write "PROGRESS 100"
-/bin/date -s 202001020000
-echo
-echo "Amiberry initialization..."
-echo
