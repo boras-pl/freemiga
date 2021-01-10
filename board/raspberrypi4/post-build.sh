@@ -19,6 +19,5 @@ sed -i 's/#::ctrlaltdel/::ctrlaltdel/' ${TARGET_DIR}/etc/inittab
 
 # w/a for time of splash visibility - initialize FKMS as late as possible
 mv ${TARGET_DIR}/etc/init.d/S10udev ${TARGET_DIR}/etc/init.d/S90udev
-# network initialization in background. Does not work :(
-#sed -i 's/^esac$/esac \&/' ${TARGET_DIR}/etc/init.d/S40network
-#sed -i 's/^esac$/esac \&/' ${TARGET_DIR}/etc/init.d/S41dhcpcd
+# network initialization in background
+sed -i "s/iface eth0 inet dhcp/iface eth0 inet dhcp\\n  udhcpc_opts -t 1 -b/" ${TARGET_DIR}/etc/network/interfaces
