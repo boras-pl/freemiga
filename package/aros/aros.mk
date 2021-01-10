@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-AROS_VERSION = latest
-AROS_SOURCE = amiga-m68k-boot-iso.zip
-AROS_SITE = https://sourceforge.net/projects/aros/files/$(AROS_VERSION)
+AROS_VERSION = 20210110
+AROS_SOURCE = download
+AROS_SITE = https://sourceforge.net/projects/aros/files/nightly2/$(AROS_VERSION)/Binaries/AROS-$(AROS_VERSION)-amiga-m68k-boot-iso.zip
 AROS_LICENSE = Aros
 AROS_DEPENDENCIES = amiberry
 
