@@ -27,10 +27,10 @@ sudo apt install git
 sudo apt install build-essential
 git clone git://git.buildroot.net/buildroot
 git clone https://github.com/boras-pl/freemiga
-cd buildroot
 #correct manually the AROS_VERSION variable in freemiga/package/aros/aros.mk
 #it is important as the latest sourceforge file is not always a m68k iso image.
 #to check the latest date visit https://sourceforge.net/projects/aros/files/nightly2/
+cd buildroot
 make BR2_EXTERNAL=../freemiga raspberrypi4_64_defconfig
 make BR2_EXTERNAL=../freemiga all 2>&1 | tee make.log
 sudo dd if=output/images/sdcard.img of=/dev/sdX bs=4096 #where X is your sd-card letter. Double check - all data on will be lost! Be aware of what you do. Sometimes, letters can surprise, especially when an USB flash drive is inserted while booting a system.
