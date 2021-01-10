@@ -50,7 +50,7 @@ Notes:
   - https://github.com/fragglet/lhasa
   - https://aros.sourceforge.io
   - http://whdload.de/
-- Despite of very few resources, the work is still in progress, a lot of thing may work or not
+- Despite of very few resources, the work is still in progress, a lot of things may work or not
 - no other h/w except of a future Pi5 or any faster equivalent model is planned.
 - recommended architecture is AARCH64. 32bit environment is very slow
 - under the Amiberry emulator an ordinary Buildroot Linux is placed with a simple userspace based on Busybox. 
