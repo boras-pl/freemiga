@@ -29,7 +29,7 @@ git clone git://git.buildroot.net/buildroot
 git clone https://github.com/boras-pl/freemiga
 cd buildroot
 #correct manually the AROS_VERSION variable in freemiga/package/aros/aros.mk
-#it is important as we the latest file is not always m68k iso image.
+#it is important as the latest sourceforge file is not always a m68k iso image.
 #to check the latest date visit https://sourceforge.net/projects/aros/files/nightly2/
 make BR2_EXTERNAL=../freemiga raspberrypi4_64_defconfig
 make BR2_EXTERNAL=../freemiga all 2>&1 | tee make.log
