@@ -16,6 +16,7 @@ FreeMIGA integrates all together and prepares a system with some unique features
 - initial config set-up 50Hz & 1080p displays (PAL emulation)
 - pixel perfect scaling
 - open source - anything can be changed or corrected
+- networking (internal RJ-45 and WiFi, USB adapters are not directly supported)
 - this repository does not include any 3rd party s/w. All components are dynamically downloaded during the build process.
 - all components have various licenses however, all of them seem to be freely redistributable under some conditions. See details and familiarize with the licenses under sites listed in the Notes section.
 - the project does not provide any proprietary and paid software including but not limited to original copyrighted ROM files, operating systems, games etc. The main goal of this project is to provide a LEGAL and WORKING environment in accordance with the law.
@@ -41,7 +42,9 @@ Usage:
 - root, password: freemiga
 - user, password: brfm
 - F12 goes to the Amiberry menu
-- execute ./expand_partition.sh as root to get a full size of / (there is a bug in v1.1. Check the latest script version out)
+- execute ./expand_partition.sh as root to get a full size of /
+- execute ./wifi_setup.sh as root and provide your network name and password. It should work after reboot. If not, check the password again. You may use ifdown wlan0, then ifup wlan0 instead of reboot. However, a misterious warning is shown from the driver.
+- kernel messagess are hidden. Edit /boot/cmdline.txt and edit or remove vt.color=0x00
 
 Notes:
 - Should you have any questions, please visit following sites first:
@@ -56,11 +59,9 @@ Notes:
 - under the Amiberry emulator an ordinary Buildroot Linux is placed with a simple userspace based on Busybox. 
 - the graphics is rendered with SDL2 on the top of Broadcom Fake KMS for VC4/V3D technology.
 - unfortunately Aros OS is not regularly released. The latest nightly builds are integrated. If the latest Aros compilation have a serious problem, it simply won't work. Try to build on another day.
-- networking initialization
-- sshd server is enabled
+- sshd server is enabled for the _user_ account only. Use _su -_ command from the user account to be a root.
 - iptables - currently not yet configured - all ports open
 
 TODO:
-- wifi
-- VICE, if possible - integration of a C64 emulator
+- VICE, integration of a C64 emulator, if possible
 - who knows what else...
