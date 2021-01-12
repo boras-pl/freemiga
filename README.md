@@ -26,7 +26,7 @@ Depending on the machine speed, the whole build process may take ~ 1h. The compi
 sudo apt update
 sudo apt install git
 sudo apt install build-essential
-git clone git://git.buildroot.net/buildroot
+git clone -b 2020.11.x git://git.buildroot.net/buildroot
 git clone https://github.com/boras-pl/freemiga
 #correct manually the AROS_VERSION variable in freemiga/package/aros/aros.mk
 #it is important as the latest sourceforge file is not always a m68k iso image.
@@ -61,6 +61,7 @@ Notes:
 - unfortunately Aros OS is not regularly released. The latest nightly builds are integrated. If the latest Aros compilation have a serious problem, it simply won't work. Try to build on another day.
 - sshd server is enabled for the _user_ account only. Use _su -_ command from the user account to be a root.
 - iptables - currently not yet configured - all ports open
+- buildroot from git HEAD has SDL2 upgraded. There is a mysterious patch for KMS DRM that causes black graphics in Aros. It is better to use a stable branch, like 2020.11.x.
 
 TODO:
 - VICE, integration of a C64 emulator, if possible
