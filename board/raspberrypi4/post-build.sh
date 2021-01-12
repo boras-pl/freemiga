@@ -46,4 +46,4 @@ then
 	echo "/dev/mmcblk0p1	/boot		vfat	defaults	0	2" >> ${TARGET_DIR}/etc/fstab
 fi
 
-mkdir ${TARGET_DIR}/boot
+mkdir -p ${TARGET_DIR}/boot
