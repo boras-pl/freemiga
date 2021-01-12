@@ -45,3 +45,5 @@ if [ `cat ${TARGET_DIR}/etc/fstab | grep '/boot' | wc -l` -eq 0 ]
 then
 	echo "/dev/mmcblk0p1	/boot		vfat	defaults	0	2" >> ${TARGET_DIR}/etc/fstab
 fi
+
+mkdir ${TARGET_DIR}/boot
