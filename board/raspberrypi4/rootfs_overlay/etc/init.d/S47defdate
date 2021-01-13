@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#initial date in case of lack of network
+
+case "$1" in
+  start)
+        /bin/date -s 202101010000
+        ;;
+  stop)
+        ;;
+  restart|reload)
+        "$0" stop
+        "$0" start
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?
