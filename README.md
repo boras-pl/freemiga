@@ -44,7 +44,7 @@ Usage:
 - F12 goes to the Amiberry menu
 - execute ./expand_partition.sh as root to get a full size of /
 - execute ./wifi_setup.sh as root and provide your network name and password. It should work after reboot. If not, check the password again. You may use ifdown wlan0, then ifup wlan0 instead of reboot. However, a misterious warning is shown from the driver.
-- kernel messagess are hidden. Edit /boot/cmdline.txt and edit or remove vt.color=0x00
+- kernel messagess are hidden. Edit /boot/cmdline.txt and edit or remove vt.color=0x00. Logs are also available in /tmp/messages.
 
 Notes:
 - Should you have any questions, please visit following sites first:
