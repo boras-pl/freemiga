@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-AROS_VERSION = 20210112
+AROS_VERSION = 20230730
 AROS_SOURCE = download
 AROS_SITE = https://sourceforge.net/projects/aros/files/nightly2/$(AROS_VERSION)/Binaries/AROS-$(AROS_VERSION)-amiga-m68k-boot-iso.zip
 AROS_LICENSE = Aros
